@@ -1,0 +1,20 @@
+.form{
+    justify-content: center;
+    transform: translate(0%,33%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.657);
+}
+body{
+    background-image: url("images/Bacardi Hd Wallpaper.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 100%;
+}
+.buton{
+    border-radius: 0px;
+    color: white;
+    margin:10px;
+    background-color: black;
+    border-color: black;
+
+}
