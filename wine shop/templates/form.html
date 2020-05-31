@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} 
+{% block scripts %}
+{{super()}}
+  <link rel="stylesheet" href="/static/css/gettoken.css">
+  <link rel="stylesheet" href="/static/css/AdminLogin.css">
+  <script src="/static/js/gettoken.js"></script>
+{% endblock %}
+
+{% block content %}
+    {{super()}}
+    <div class="box">
+      <form onsubmit="" action="{{ url_for('gettoken')}}" method="POST" id="frm1" onSubmit=""> 
+        <div id="msg"></div>
+        <input type="text" placeholder="Name" name ="name" id="name" required>
+        <input type="text" class="" placeholder="Mobile No" style="font-size: 16px;" id="mobile" name="number" pattern="[7-9]{1}[0-9]{9}" required>
+        <select name="time_slot" id="" title="Only available timeslots are displayed" aria-placeholder="Select">
+          <option value="0">Select car:</option>
+          {% for i in time_slot %}
+          <option value="{{i[0]}}">{{i[0]}} - {{i[1]}}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" id="submit" name="submit" class="buton">Get Token</button>
+      </form>
+</div>
+            
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

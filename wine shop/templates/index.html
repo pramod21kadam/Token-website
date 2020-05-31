@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+    
+{% block scripts %}
+    {{super()}}
+{% endblock%}
+
+{% block content %}
+        {{super()}}
+        <div style=" display: block;margin-left: 35%;">
+            <p style="font-size: 40px;">Wine Token website</p>
+        </div>     
+        <div style="margin-left: 42%;">   
+        <p>
+                    <a href="{{ url_for('gettoken') }}">
+                        Get Token
+                    </a>
+        </p>
+        </div>    
+{% endblock %}

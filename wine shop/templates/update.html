@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block scripts %} {{super()}}
+<!-- <script src="/static/js/Admin.js"></script> -->
+
+{% endblock %}
+{% block content %}
+    {{super()}}
+     <form action="{{url_for('update')}}" name="form" class="class" method="POST">
+        <div style=" background-color: rgba(26, 8, 2, 0.5); overflow: auto; margin-top: 10vh; margin-left: 29vw; margin-bottom: 10vh; display: flex;  width: 45vw; border-color: black;"> 
+        <table style="text-align: center;" cellspacing="15">
+         <tr>
+             <th> Time slot </th>
+             <th> Number of tokens </th>
+             <th> Remaining tokens</th>
+             <th> status </th>
+             <th> Change status </th>
+         </tr>
+        {% for i in timeslots %}
+         <tr name="{{i[0]}}">
+             <td> {{i[0]}}-{{i[1]}} </td>
+             {% if not i[2] > i[3]  %}
+             <td> <input type="number" name="{{i[0]}};tokens" id="" value="{{i[2]}}" style="width: 5vw;"></td>
+             {% else %}
+             <td>{{i[2]}}</td>
+             {% endif %}
+             <td> {{i[3]}}</td>
+             <td> {{i[4]}} </td>
+             <td>
+                 {% if i[4] != "booked" and i[2]==i[3] %}
+                 <select name="{{i[0]}};status">
+                    <option value="open">open</option>
+                    <option value="close">close</option>
+                 </select>
+                 {% else %}
+                 <p title="Bookings are done. Cannot change status">{{i[4]}}</p>
+                 {% endif %}
+             </td>
+         </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <button type="submit"> Save </button>
+    </form>
+{% endblock %}

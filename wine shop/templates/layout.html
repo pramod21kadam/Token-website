@@ -1,0 +1,49 @@
+<html>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <head>
+        {% block scripts %}
+            <link rel="stylesheet" href="/static/css/layout.css">
+            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="/static/js/layout.js"></script>
+        {% endblock %}        
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+<body>  
+    {% block content%}
+    <div >
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+              <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo"><a  class="link" href="{{ url_for('home')}}">{{ lable }}</a></label>
+            <ul name="nav_bar_list">
+                {% for i in nav_links.keys()%}
+                    {% if i != "drop" %}
+                        <li><a href="{{ url_for(i) }}">{{ nav_links[i] }}</a></li>
+                    {% else %}
+                        {% for j in nav_links[i].keys() %}
+                        <!-- <li>
+                            <select>
+                                <option><a href="{{ url_for(j) }}">{{ (nav_links[i])[j] }}</a></option>
+                            </select>
+                        </li> -->
+                        {% endfor %}
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn"> More </button>
+                            <div id="myDropdown" class="dropdown-content">
+                        {% for j in nav_links[i].keys() %}
+                              <a href="{{ url_for(j) }}">{{ (nav_links[i])[j] }}</a>
+                          {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </nav>
+    </div>
+    {% endblock %}
+</body>
+</html>

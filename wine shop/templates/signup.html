@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block scripts %}{{super()}}
+     <link rel="stylesheet" href="/static/css/AdminLogin.css">
+     <link rel="stylesheet" href="/static/css/signup.css">
+     <script src="/static/js/password.js"></script>
+     <script src="/static/js/username.js"></script>
+{% endblock %}
+
+{% block content %}
+{{super()}}
+        <div class="box">
+            <form onSubmit = "return checkPassword(this)" action="{{ url_for('signup') }}" id="signupform" method="post"> 
+            <h1>Signup</h1>
+            <div id="msg"></div>
+            <input type="text" placeholder="Username" name="username" id="username" required>
+            <div id="password1"></div>
+            <input type="password" placeholder="password" name=password1 required>
+            <div id="password2"></div>
+            <input type="password" placeholder="password" name=password2 required>
+            <button type="submit">Signup</button>
+            <div class="link_signup">
+                <a href="{{ url_for('adminlogin') }}">Login now</a>
+            </div>
+            </form>
+    <!-- <a href="{{url_for('adminlogin')}}">Login</a> -->
+</div>
+{% endblock %}

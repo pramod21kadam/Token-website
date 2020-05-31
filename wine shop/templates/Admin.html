@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block scripts %} {{super()}}
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script src="/static/js/Admin.js"></script>
+ {% endblock %}
+{% block content %}
+    {{super()}}
+    <div style=" margin-left: 28vw; margin-top: 10vh; ">
+        <div style="margin: 30px; margin-left: 18vw; ">Statistics</div>
+        <div id="curve_chart" style="display: block; width: 900px; height: 500px; box-shadow: black 10px 8px 10px 10px;"></div>
+    </div>
+{% endblock %}

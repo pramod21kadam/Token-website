@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+    
+{% block scripts %}
+    {{super()}}
+{% endblock%}
+
+{% block content %}
+        {{super()}}
+        <p>Name: {{name}}</p>
+        <p>Token number: {{tokenno}}</p>
+        <p>Time Slot: {{timeslot}}</p>
+{% endblock %}
